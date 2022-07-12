@@ -9,11 +9,11 @@ import {
 import { Col, Row, Grid } from "react-native-easy-grid";
 import  Icon  from "react-native-vector-icons/AntDesign";
 
-import  Instruction  from "./instruction";
-import  Loading  from "./loadingscreen";
-import  MealImage  from "./imagescreen";
-import YoutubeDisplayer from "./youtubescreen";
-import  Ingredients  from "./ingredients";
+import  {Instruction}  from "./instruction";
+import  {Loading}  from "./loadingscreen";
+import  {MealImage}  from "./imagescreen";
+import {YoutubeDisplayer} from "./youtubescreen";
+import  {Ingredients}  from "./ingredients";
 
 //Ingredients containing 2 information
 function getIngredients(data) {
@@ -36,7 +36,7 @@ export const FoodScreen = () => {
   const playerRef = useRef(null);
 
   const [modalVisible, setModalVisible] = useState(true);
-  const [Hearts, setHearts] = useState("pin-3");
+  const [Hearts, setHearts] = useState("hearto");
 
   const [title, setTitle] = useState("Title here...");
   const [category, setCategoty] = useState("Category here...");

@@ -3,8 +3,8 @@ import { StatusBar, StyleSheet, Platform, Text, View } from 'react-native';
 import  {NavigationContainer}  from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
-import  About  from './app/screens/homepage';
-import  {FoodScreen}  from './app/screens/foodscreens';
+import  {About}  from './app/screens/homepage';
+import  {FoodScreen} from './app/screens/foodscreens';
 
 const Drawer = createDrawerNavigator();
 
