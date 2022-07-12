@@ -1,6 +1,6 @@
 import React from 'react';
-import {View, StatusBar, StyleSheet, TouchableOpacity, Linking, Image } from 'react-native';
-import {NavBar, Text} from 'galio-framework';
+import {View, StyleSheet } from 'react-native';
+import {Text} from 'galio-framework';
 
 export const About = () => {
     return (
