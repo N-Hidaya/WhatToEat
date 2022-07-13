@@ -5,6 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 
+
 export const MealImage = ({img}) => {
 
     const navigation = useNavigation();
@@ -12,13 +13,13 @@ export const MealImage = ({img}) => {
     return (
         <View style={styles.container}>
             <Image style={styles.picture} source={{uri: img,}} />
-            <View style={styles.coverage}>
+           {/*} <View style={styles.coverage}>
                 <TouchableOpacity style={styles.itemdesign}
                     onPress={() => navigation.openDrawer()}>
                     <Icon name="menu" size={36} color="white" />
                 </TouchableOpacity>
 
-            </View>
+    </View>*/}
         </View>
     )
 
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
         left: 5,
     },
     itemdesign: {
-        backgroundColor: '#FF8A00',
+        backgroundColor: 'pink', //FF8A00
         borderRadius: 8,
     },
 })
