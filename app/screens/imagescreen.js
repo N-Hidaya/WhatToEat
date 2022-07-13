@@ -8,7 +8,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 
 export const MealImage = ({img}) => {
 
-    const navigation = useNavigation();
+    //const navigation = useNavigation();
 
     return (
         <View style={styles.container}>

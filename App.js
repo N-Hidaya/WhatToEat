@@ -1,18 +1,18 @@
 import React from 'react';
-import { StatusBar, StyleSheet, Platform, Text, View } from 'react-native';
+import { StatusBar, StyleSheet, Platform, Text, View, ScrollView} from 'react-native';
 import  {NavigationContainer}  from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
 import  {About}  from './app/screens/homepage';
 import  {FoodScreen} from './app/screens/foodscreens';
 
-const Drawer = createDrawerNavigator();
+//const Drawer = createDrawerNavigator();
 
 export default function App() {
 
   return (
     <View style={styles.container}>
-      <NavigationContainer>
+      {/*<NavigationContainer>
         <Drawer.Navigator initialRouteName="Home"
           screenOptions={{
             activeTintColor: '#FF8A00',
@@ -22,7 +22,9 @@ export default function App() {
             <Drawer.Screen name="Home" component={FoodScreen} />
             <Drawer.Screen name="About" component={About} />
         </Drawer.Navigator>
-      </NavigationContainer>
+        </NavigationContainer>*/}
+      <About />
+      <FoodScreen />
     </View>
   );
 }
