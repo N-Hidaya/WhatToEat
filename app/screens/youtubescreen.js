@@ -1,9 +1,16 @@
 import React from "react";
 import YoutubePlayer from "react-native-youtube-iframe";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Alert } from "react-native";
 
 export const YoutubeDisplayer = ({playerRef, YoutubeID, playing}) => {
-    
+    function warning(err) {
+        Alert.alert('info', err, 'ok', [
+            {
+                text: 'ok',
+                style: 'cancel'
+            },
+        ]);
+    }
     return (
         <View style={styles.container}>
             <View style={styles.loader}>

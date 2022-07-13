@@ -1,36 +1,13 @@
 import React, { useState, useRef, useEffect } from "react";
-import {
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  Alert,
-  Text
-} from "react-native";
+import { View, StyleSheet, TouchableOpacity, Alert, Text } from "react-native";
 import { Col, Row, Grid } from "react-native-easy-grid";
-import  Icon  from "react-native-vector-icons/AntDesign";
+import Icon from "react-native-vector-icons/AntDesign";
 
-import  {Instruction}  from "./instruction";
-import  {Loading}  from "./loadingscreen";
-import  {MealImage}  from "./imagescreen";
-import {YoutubeDisplayer} from "./youtubescreen";
-import  {Ingredients}  from "./ingredients";
-
-//Ingredients containing 2 information
-function getIngredients(data) {
-  for (let index = 0; index < 20; index++) {
-    if (data[`strIngredient${index}`]) {
-      setIngredients((prevList) => {
-        return [
-          {
-            strIngredient: data[`strIngredient${index}`],
-            strMeasure: data[`strMeasure${index}`],
-          },
-          ...prevList,
-        ];
-      });
-    }
-  }
-}
+import { Instruction } from "./instruction";
+import { Loading } from "./loadingscreen";
+import { MealImage } from "./imagescreen";
+import { YoutubeDisplayer } from "./youtubescreen";
+import { Ingredients } from "./ingredients";
 
 export const FoodScreen = () => {
   const playerRef = useRef(null);
@@ -39,7 +16,7 @@ export const FoodScreen = () => {
   const [Hearts, setHearts] = useState("hearto");
 
   const [title, setTitle] = useState("Title here...");
-  const [category, setCategoty] = useState("Category here...");
+  const [category, setCategory] = useState("Category here...");
   const [instructions, setInstructions] = useState(
     "Instruction here...click on Get new meal"
   );
@@ -78,6 +55,23 @@ export const FoodScreen = () => {
   const LoadInstructions = () => {
     setCurrentScreen(<Instruction instructions={instructions} />);
     setVideo(3);
+  };
+
+  //Ingredients containing 2 information
+  function getIngredients(data) {
+    for (let index = 0; index < 20; index++) {
+      if (data[`strIngredient${index}`]) {
+        setIngredients((prevList) => {
+          return [
+            {
+              strIngredient: data[`strIngredient${index}`],
+              strMeasure: data[`strMeasure${index}`],
+            },
+            ...prevList,
+          ];
+        });
+      }
+    }
   }
 
   //Fetch random food of the day
@@ -89,14 +83,14 @@ export const FoodScreen = () => {
       .then((responseJson) => {
         setModalVisible(true);
         setTitle(responseJson.meals[0].strMeal);
-        setCategoty(responseJson.meals[0].strCategory);
-        setInstructions(responseJson.meals[0].setInstructions);
+        setCategory(responseJson.meals[0].strCategory);
+        setInstructions(responseJson.meals[0].strInstructions);
         setImage(responseJson.meals[0].strMealThumb);
         setYoutubeID(responseJson.meals[0].strYoutube.substring(32, 43));
         setIngredients([]);
         getIngredients(responseJson.meals[0]);
         setCurrentScreen(
-          <Instruction instructions={responseJson.meals[0].setInstructions} />
+          <Instruction instructions={responseJson.meals[0].strInstructions} />
         );
         setModalVisible(false);
         setHearts("hearto");
@@ -139,17 +133,26 @@ export const FoodScreen = () => {
             <View style={styles.displayer}>
               <Grid>
                 <Col>
-                  <TouchableOpacity style={styles.btnStyle} onPress={() => LoadInstructions()}>
+                  <TouchableOpacity
+                    style={styles.btnStyle}
+                    onPress={() => LoadInstructions()}
+                  >
                     <Text style={styles.btnTxt}>Instructions</Text>
                   </TouchableOpacity>
                 </Col>
                 <Col>
-                  <TouchableOpacity style={styles.btnStyle} onPress={() => LoadIngredients()}>
+                  <TouchableOpacity
+                    style={styles.btnStyle}
+                    onPress={() => LoadIngredients()}
+                  >
                     <Text style={styles.btnTxt}>Ingredients</Text>
                   </TouchableOpacity>
                 </Col>
                 <Col>
-                  <TouchableOpacity style={styles.btnStyle} onPress={() => LoadVideo()}>
+                  <TouchableOpacity
+                    style={styles.btnStyle}
+                    onPress={() => LoadVideo()}
+                  >
                     <Text style={styles.btnTxt}>Video</Text>
                   </TouchableOpacity>
                 </Col>
@@ -160,7 +163,10 @@ export const FoodScreen = () => {
         </Row>
         <Row size={0.4}>
           <View style={styles.front}>
-            <TouchableOpacity style={styles.getMealBtn} onPress={() => getFoodApi()}>
+            <TouchableOpacity
+              style={styles.getMealBtn}
+              onPress={() => getFoodApi()}
+            >
               <Text style={styles.getMealTxt}>Get new meal</Text>
             </TouchableOpacity>
           </View>
@@ -207,44 +213,44 @@ const styles = StyleSheet.create({
 
   //Video corner
   wrapper: {
-    backgroundColor: 'white',
-    width: '100%',
-    height: '100%',
+    backgroundColor: "white",
+    width: "100%",
+    height: "100%",
   },
   displayer: {
-    height: '10%',
-    marginVertical: 30
+    height: "10%",
+    marginVertical: 30,
   },
   btnStyle: {
-    alignItems: 'center',
-    backgroundColor: 'pink',
+    alignItems: "center",
+    backgroundColor: "pink",
     borderRadius: 20,
     padding: 10,
     marginHorizontal: 10,
   },
   btnTxt: {
-    color: 'white',
+    color: "white",
     fontSize: 15,
   },
 
   //front design
   front: {
-    backgroundColor: '#FF8A00',
+    backgroundColor: "#FF8A00",
     padding: 10,
-    alignContent: 'center',
-    justifyContent: 'center',
+    alignContent: "center",
+    justifyContent: "center",
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
     flex: 1,
   },
   getMealBtn: {
-    alignContent: 'center',
-    alignItems: 'center'
+    alignContent: "center",
+    alignItems: "center",
   },
   getMealTxt: {
-    color: 'white',
-    fontWeight: 'bold',
+    color: "white",
+    fontWeight: "bold",
     fontSize: 17,
     paddingHorizontal: 80,
-  }
+  },
 });
