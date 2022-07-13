@@ -121,7 +121,7 @@ export const FoodScreen = () => {
 
               <View style={styles.heart}>
                 <TouchableOpacity onPress={() => setHearts("heart")}>
-                  <Icon name={Hearts} size={24} color="#F26161" />
+                  <Icon name={Hearts} size={24} color="#E86D83FF" />
                 </TouchableOpacity>
               </View>
             </View>
@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#F0F6F5",
   },
   card: {
-    backgroundColor: "#F0F6F5",
+    backgroundColor: "#F0F6F5", //#F0F6F5
     borderBottomLeftRadius: 40,
     borderBottomRightRadius: 40,
     width: "100%",
@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
   },
   category: {
     fontSize: 12,
-    color: "#FF8A00",
+    color: "#E86D83FF",
     fontWeight: "bold",
   },
   heart: {
@@ -235,7 +235,7 @@ const styles = StyleSheet.create({
 
   //front design
   front: {
-    backgroundColor: "#FF8A00",
+    backgroundColor: "#E86D83FF",
     padding: 10,
     alignContent: "center",
     justifyContent: "center",
