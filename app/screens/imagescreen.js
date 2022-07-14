@@ -35,8 +35,8 @@ const styles = StyleSheet.create({
     picture: {
         width: '100%',
         height: '100%',
-        borderBottomLeftRadius: 40,
-        borderBottomRightRadius: 40,
+       // borderBottomLeftRadius: 40,
+       // borderBottomRightRadius: 40,
     },
     coverage: {
         position: 'absolute',

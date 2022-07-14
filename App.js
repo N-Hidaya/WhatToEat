@@ -23,8 +23,10 @@ export default function App() {
             <Drawer.Screen name="About" component={About} />
         </Drawer.Navigator>
         </NavigationContainer>*/}
+        
       <About />
       <FoodScreen />
+        
     </View>
   );
 }

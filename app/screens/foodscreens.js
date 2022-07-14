@@ -106,12 +106,7 @@ export const FoodScreen = () => {
     <View style={styles.container}>
       <Loading modalVisible={modalVisible} />
       <Grid>
-        <Row size={2}>
-          <View style={{ width: "100%" }}>
-            <MealImage img={image} />
-          </View>
-        </Row>
-        <Row size={0.8}>
+        <Row size={0.5}>
           <View style={styles.card}>
             <View style={styles.innercard}>
               <View style={{ width: "90%" }}>
@@ -125,6 +120,11 @@ export const FoodScreen = () => {
                 </TouchableOpacity>
               </View>
             </View>
+          </View>
+        </Row>
+        <Row size={2}>
+          <View style={{ width: "100%" }}>
+            <MealImage img={image} />
           </View>
         </Row>
 
@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: "bold",
     fontSize: 20,
-    marginTop: 18,
+    marginTop: 10,
   },
   category: {
     fontSize: 12,
@@ -219,13 +219,13 @@ const styles = StyleSheet.create({
   },
   displayer: {
     height: "10%",
-    marginVertical: 30,
+    marginVertical: 10,
   },
   btnStyle: {
     alignItems: "center",
     backgroundColor: "pink",
     borderRadius: 20,
-    padding: 10,
+    padding: 5,
     marginHorizontal: 10,
   },
   btnTxt: {
